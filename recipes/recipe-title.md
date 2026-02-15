@@ -1,5 +1,5 @@
 ---
-title: Recipe Title
+title: Java
 description: Recipe Description
 hidden: false
 recipe:
