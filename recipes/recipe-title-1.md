@@ -22,8 +22,7 @@ export const Button = ({ children }) => {
 };
 
 <Button>
-  Here’s a very simple example component rather than an empty state. This should help you figure out what's happening quicker and see what's possible with custom components!
-</Button>
+Javeed</Button>
 ```
 
 ```json Response Example
@@ -34,3 +33,4 @@ export const Button = ({ children }) => {
 
 <!-- curl@ -->
 <!-- javascript@ -->
+
