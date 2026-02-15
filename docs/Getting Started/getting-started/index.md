@@ -7,7 +7,7 @@ hidden: false
 ---
 export const handleLogin=() => alert("Hello");
 
-<Button onclick={handleLogin}>Hello Javeed </Button>
+<Button onClick={handleLogin}>Hello Javeed </Button>
 
 # CreditCardGuard - ML Fraud Detection
 
