@@ -1,9 +1,9 @@
 ---
-title: Recipe Title
-description: Recipe Description
+title: Javeed Recipe
+description: ''
 hidden: false
 recipe:
-  color: '#018FF4'
+  color: '#351e31'
   icon: 🦉
 ---
 ```javascript JavaScript
