@@ -1,7 +1,7 @@
 ---
 title: CreditCardGuard - ML Fraud Detection
 excerpt: >-
-  Credit card fraud detection system using machine learning and MERN stack for
+  Credit card fraud detection system using machine l earning and MERN stack for
   real-time transaction analysis
 hidden: false
 ---
