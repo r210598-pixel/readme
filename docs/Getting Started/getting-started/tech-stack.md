@@ -6,3 +6,4 @@ hidden: false
 metadata:
   robots: index
 ---
+This contains about all the technologies used in thi sproject
