@@ -5,47 +5,69 @@ excerpt: >-
   real-time transaction analysis
 hidden: false
 ---
+<br />
+
+export const ExampleComponent = ({ children }) => {
+  return (
+    <div className="flex items-center h-full w-full">
+      <div className="bg-gray-800 rounded-md p-6 m-4">
+        {children}
+      </div>
+    </div>
+  );
+};
+
+<ExampleComponent>
+  Here’s a very simple example component rather than an empty state. This should help you figure out what's happening quicker and see what's possible with custom components!
+</ExampleComponent>
+
 # CreditCardGuard - ML Fraud Detection
 
 Build a robust fraud detection and validation system that leverages machine learning models to analyze credit card transaction patterns in real-time, integrated with a user-friendly web dashboard for monitoring and alerts. This project combines MERN stack development with AI/ML to handle thousands of transactions daily, featuring anomaly detection via graph neural networks and control flow analysis for transaction paths.
 
 ## Project Overview
 
-The "CreditCardGuard" platform processes credit card details (via secure tokenization) to detect fraud, validate cards, and generate risk scores using ML algorithms trained on synthetic/historical datasets. Users (banks, merchants) upload transaction logs or connect APIs, view interactive dashboards, and receive instant alerts on suspicious activities. 
+The "CreditCardGuard" platform processes credit card details (via secure tokenization) to detect fraud, validate cards, and generate risk scores using ML algorithms trained on synthetic/historical datasets. Users (banks, merchants) upload transaction logs or connect APIs, view interactive dashboards, and receive instant alerts on suspicious activities.
 
 Built on MERN for the web app with a Python ML backend for model inference, this project is ideal for BTech final-year projects—expect 4-6 months development with modular scalability to enterprise levels.
 
 ## Core Features
 
 ### Real-Time Fraud Detection
+
 ML models (e.g., Isolation Forest, LSTM for sequences) flag anomalies like unusual spending velocity or geolocation jumps.
 
 ### Card Validation Engine
+
 Checks BIN/IIN ranges, CVV/Luhn algorithm, and expiry via integrated APIs (e.g., Stripe-like validators).
 
 ### Transaction Graph Analysis
+
 Builds control flow graphs of user spending patterns; uses alpha-beta pruning-inspired optimization to prioritize high-risk paths.
 
 ### Interactive Web Dashboard
+
 React-based UI with real-time charts, heatmaps of fraud hotspots, and customizable alerts (email/SMS via Twilio).
 
 ### Batch Processing & Reporting
+
 Upload CSV/JSON files for bulk analysis; export PDF reports with visualizations.
 
 ### Security & Compliance
+
 End-to-end encryption, GDPR-compliant data handling, role-based access (admin/merchant/user).
 
 ## Technical Architecture
 
 The system divides into frontend, backend, ML services, and database layers for seamless integration.
 
-| Layer | Components | Key Tech |
-|-------|------------|----------|
-| **Frontend** | Responsive UI, live updates | React, Redux, Socket.io, Chart.js/D3.js |
-| **Backend** | API server, auth, orchestration | Node.js/Express, JWT/OAuth, RabbitMQ for queues |
-| **ML Engine** | Model training/inference, feature engineering | Python (Scikit-learn, TensorFlow/Keras), NetworkX for graphs |
-| **Database** | Transactions, user data, model artifacts | MongoDB (time-series), Redis (caching), MinIO (file storage) |
-| **DevOps** | Containerization, CI/CD, monitoring | Docker, Kubernetes (optional), GitHub Actions, Prometheus/Grafana |
+| Layer         | Components                                    | Key Tech                                                          |
+| ------------- | --------------------------------------------- | ----------------------------------------------------------------- |
+| **Frontend**  | Responsive UI, live updates                   | React, Redux, Socket.io, Chart.js/D3.js                           |
+| **Backend**   | API server, auth, orchestration               | Node.js/Express, JWT/OAuth, RabbitMQ for queues                   |
+| **ML Engine** | Model training/inference, feature engineering | Python (Scikit-learn, TensorFlow/Keras), NetworkX for graphs      |
+| **Database**  | Transactions, user data, model artifacts      | MongoDB (time-series), Redis (caching), MinIO (file storage)      |
+| **DevOps**    | Containerization, CI/CD, monitoring           | Docker, Kubernetes (optional), GitHub Actions, Prometheus/Grafana |
 
 **Data flow:** Web form/API → Preprocessing (normalize amount/location) → ML scoring → Dashboard update/alert.
 
@@ -56,30 +78,27 @@ Focus on hybrid models for high accuracy (aim for 95+ percent F1-score on Kaggle
 ### Feature Engineering
 
 Extract 50+ features including:
-- Transaction amount z-score
-- Time-of-day entropy
-- Merchant category velocity
-- IP geolocation velocity
-- Graph-based metrics (e.g., PageRank of connected fraud rings)
+
+* Transaction amount z-score
+* Time-of-day entropy
+* Merchant category velocity
+* IP geolocation velocity
+* Graph-based metrics (e.g., PageRank of connected fraud rings)
 
 ### Primary Models
 
 <Tabs>
-<Tab title="Supervised Learning">
+  <Tab title="Supervised Learning">
+    **XGBoost/Random Forest** on labeled data (fraud/non-fraud) for classification with high precision.
+  </Tab>
 
-**XGBoost/Random Forest** on labeled data (fraud/non-fraud) for classification with high precision.
+  <Tab title="Unsupervised Learning">
+    **Autoencoders** for anomaly detection; **GraphSAGE** for relational patterns in transaction networks.
+  </Tab>
 
-</Tab>
-<Tab title="Unsupervised Learning">
-
-**Autoencoders** for anomaly detection; **GraphSAGE** for relational patterns in transaction networks.
-
-</Tab>
-<Tab title="Sequential Analysis">
-
-**LSTM/GRU** to capture time-series behaviors (e.g., rapid small transactions indicating card testing).
-
-</Tab>
+  <Tab title="Sequential Analysis">
+    **LSTM/GRU** to capture time-series behaviors (e.g., rapid small transactions indicating card testing).
+  </Tab>
 </Tabs>
 
 ### Training Pipeline
@@ -130,13 +149,13 @@ Add Tailwind for styling, Axios for API calls, Recharts for graphs.
 
 ### Backend APIs
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/transactions` | POST | Submit transaction for scoring |
-| `/api/dashboard` | GET | Fetch real-time metrics/charts |
-| `/api/alerts` | GET | List user alerts |
-| `/api/bulk-upload` | POST | Process CSV files |
-| `/api/models/retrain` | POST | Trigger model update (admin) |
+| Endpoint              | Method | Description                    |
+| --------------------- | ------ | ------------------------------ |
+| `/api/transactions`   | POST   | Submit transaction for scoring |
+| `/api/dashboard`      | GET    | Fetch real-time metrics/charts |
+| `/api/alerts`         | GET    | List user alerts               |
+| `/api/bulk-upload`    | POST   | Process CSV files              |
+| `/api/models/retrain` | POST   | Trigger model update (admin)   |
 
 ### Real-Time Features
 
@@ -159,21 +178,21 @@ socket.on('fraudAlert', (alert) => {
 
 ### Security Implementation
 
-<Callout theme="warning" icon="shield-alt">
-Never store raw card numbers. Hash sensitive data, enforce HTTPS, and implement rate-limiting with express-rate-limit.
+<Callout icon="shield-alt" theme="warning">
+  Never store raw card numbers. Hash sensitive data, enforce HTTPS, and implement rate-limiting with express-rate-limit.
 </Callout>
 
 ### Deployment Options
 
-- **Local Development:** Docker-compose for all services
-- **Production:** Vercel/Netlify (frontend), Heroku/Railway (backend), MongoDB Atlas (database)
+* **Local Development:** Docker-compose for all services
+* **Production:** Vercel/Netlify (frontend), Heroku/Railway (backend), MongoDB Atlas (database)
 
 ## Dataset & Training Resources
 
 ### Public Datasets
 
-- **Kaggle IEEE-CIS Fraud Detection:** 300k+ transaction samples with labels
-- **PaySim:** Synthetic mobile money transactions dataset
+* **Kaggle IEEE-CIS Fraud Detection:** 300k+ transaction samples with labels
+* **PaySim:** Synthetic mobile money transactions dataset
 
 ### Synthetic Data Generation
 
@@ -202,14 +221,14 @@ X_test_scaled = scaler.transform(X_test)
 
 ## Development Roadmap
 
-| Weeks | Milestone | Deliverables |
-|-------|-----------|--------------|
-| 1-2 | **Setup & Auth** | MERN boilerplate, JWT auth, MongoDB schema |
-| 3-5 | **Backend APIs** | Transaction endpoints, Luhn/CVV validator |
-| 6-8 | **ML Prototype** | Train basic model, Flask API integration |
-| 9-11 | **Dashboard** | React UI, charts, real-time updates |
-| 12-14 | **Advanced Features** | Graph analysis, alerts, bulk upload |
-| 15-16 | **Polish & Testing** | Unit/integration tests, docs, demo video |
+| Weeks | Milestone             | Deliverables                               |
+| ----- | --------------------- | ------------------------------------------ |
+| 1-2   | **Setup & Auth**      | MERN boilerplate, JWT auth, MongoDB schema |
+| 3-5   | **Backend APIs**      | Transaction endpoints, Luhn/CVV validator  |
+| 6-8   | **ML Prototype**      | Train basic model, Flask API integration   |
+| 9-11  | **Dashboard**         | React UI, charts, real-time updates        |
+| 12-14 | **Advanced Features** | Graph analysis, alerts, bulk upload        |
+| 15-16 | **Polish & Testing**  | Unit/integration tests, docs, demo video   |
 
 ### Post-Development
 
@@ -218,47 +237,43 @@ Add PWA support for mobile responsiveness and offline capabilities.
 ## Challenges & Solutions
 
 <Accordion title="Imbalanced Data" icon="balance-scale">
+  **Problem:** Fraud transactions are typically less than 1 percent of dataset.
 
-**Problem:** Fraud transactions are typically less than 1 percent of dataset.
+  **Solutions:**
 
-**Solutions:**
-- Oversample minority class using SMOTE
-- Use class weights in model training
-- Focus on precision-recall metrics instead of accuracy
-
+  * Oversample minority class using SMOTE
+  * Use class weights in model training
+  * Focus on precision-recall metrics instead of accuracy
 </Accordion>
 
 <Accordion title="Latency Requirements" icon="clock">
+  **Problem:** Real-time scoring must complete in less than 100ms.
 
-**Problem:** Real-time scoring must complete in less than 100ms.
+  **Solutions:**
 
-**Solutions:**
-- Implement Redis caching for frequent queries
-- Use model quantization to reduce inference time
-- Deploy models on edge servers closer to users
-
+  * Implement Redis caching for frequent queries
+  * Use model quantization to reduce inference time
+  * Deploy models on edge servers closer to users
 </Accordion>
 
 <Accordion title="Scalability Concerns" icon="chart-line">
+  **Problem:** System must handle thousands of concurrent transactions.
 
-**Problem:** System must handle thousands of concurrent transactions.
+  **Solutions:**
 
-**Solutions:**
-- Implement microservices architecture
-- Use Kubernetes horizontal pod autoscaling
-- Implement message queues (RabbitMQ) for async processing
-
+  * Implement microservices architecture
+  * Use Kubernetes horizontal pod autoscaling
+  * Implement message queues (RabbitMQ) for async processing
 </Accordion>
 
 <Accordion title="Ethical Considerations" icon="user-shield">
+  **Problem:** Privacy and bias in fraud detection.
 
-**Problem:** Privacy and bias in fraud detection.
+  **Solutions:**
 
-**Solutions:**
-- Anonymize all personal data
-- Conduct bias audits across demographics
-- Implement explainable AI (SHAP values) for transparency
-
+  * Anonymize all personal data
+  * Conduct bias audits across demographics
+  * Implement explainable AI (SHAP values) for transparency
 </Accordion>
 
 ## Documentation Blueprint
@@ -267,33 +282,33 @@ Comprehensive documentation is crucial for project evaluation and portfolio pres
 
 ### Required Documents
 
-- **README.md:** High-level overview, demo GIF, quickstart (`git clone && npm i && docker-compose up`)
-- **Requirements Specs:** 20+ user stories (e.g., "As a merchant, I want a risk heatmap so I can block fraud early")
-- **Architecture Docs:** Mermaid diagrams for data/ML flows; ERD via dbdiagram.io
-- **API Reference:** Swagger/OpenAPI YAML with request/response examples
-- **ML Notebook:** Jupyter notebook with experiments, confusion matrices, feature importance
-- **Deployment Guide:** Environment variables, scaling tips, infrastructure setup
-- **Test Plan:** Unit tests (Jest), integration tests (Supertest), E2E tests (Cypress); target greater than 80 percent coverage
-- **User Manual:** Dashboard screenshots, API playground, common workflows
+* **README.md:** High-level overview, demo GIF, quickstart (`git clone && npm i && docker-compose up`)
+* **Requirements Specs:** 20+ user stories (e.g., "As a merchant, I want a risk heatmap so I can block fraud early")
+* **Architecture Docs:** Mermaid diagrams for data/ML flows; ERD via dbdiagram.io
+* **API Reference:** Swagger/OpenAPI YAML with request/response examples
+* **ML Notebook:** Jupyter notebook with experiments, confusion matrices, feature importance
+* **Deployment Guide:** Environment variables, scaling tips, infrastructure setup
+* **Test Plan:** Unit tests (Jest), integration tests (Supertest), E2E tests (Cypress); target greater than 80 percent coverage
+* **User Manual:** Dashboard screenshots, API playground, common workflows
 
 ## Project Statistics
 
 This enterprise-grade system showcases advanced skills in AI/ML-web fusion, perfect for resumes targeting fintech roles at companies like Razorpay or Paytm.
 
-- **Total Lines of Code:** ~5,000
-- **Development Time:** 4-6 months
-- **Target Accuracy:** 95+ percent F1-score
-- **Transaction Capacity:** Thousands daily
-- **Tech Stack:** MERN + Python ML
+* **Total Lines of Code:** ~5,000
+* **Development Time:** 4-6 months
+* **Target Accuracy:** 95+ percent F1-score
+* **Transaction Capacity:** Thousands daily
+* **Tech Stack:** MERN + Python ML
 
 ### Demo & Extensions
 
-- Prototype on localhost with Docker
-- Create demo video for YouTube/portfolio
-- Extend with blockchain for immutable transaction ledgers
-- Add mobile app with React Native
-- Implement A/B testing for model performance
+* Prototype on localhost with Docker
+* Create demo video for YouTube/portfolio
+* Extend with blockchain for immutable transaction ledgers
+* Add mobile app with React Native
+* Implement A/B testing for model performance
 
-<Callout theme="success" icon="rocket">
-Ready to start building? Clone the boilerplate, set up your environment, and begin with the ML model training pipeline.
+<Callout icon="rocket" theme="success">
+  Ready to start building? Clone the boilerplate, set up your environment, and begin with the ML model training pipeline.
 </Callout>
