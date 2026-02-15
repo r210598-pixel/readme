@@ -1,7 +1,7 @@
 ---
 title: Recipe Title
 description: Recipe Description
-hidden: true
+hidden: false
 recipe:
   color: '#018FF4'
   icon: 🦉
