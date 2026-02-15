@@ -5,9 +5,9 @@ excerpt: >-
   real-time transaction analysis
 hidden: false
 ---
-<br />
+export const handleLogin=() => alert("Hello")
 
-<Button>Hello Javeed </Button>
+<Button onclick={handleLogin}>Hello Javeed </Button>
 
 # CreditCardGuard - ML Fraud Detection
 
