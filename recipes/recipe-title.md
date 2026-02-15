@@ -7,7 +7,7 @@ recipe:
   icon: 🦉
 ---
 ```javascript JavaScript
-export const ExampleComponent = ({ children }) => {
+export const Button = ({ children }) => {
 
   return (
 
@@ -25,11 +25,11 @@ export const ExampleComponent = ({ children }) => {
 
 };
 
-<ExampleComponent>
+<Button>
 
   Here’s a very simple example component rather than an empty state. This should help you figure out what's happening quicker and see what's possible with custom components!
 
-</ExampleComponent>
+</Button>
 ```
 
 ```json Response Example
