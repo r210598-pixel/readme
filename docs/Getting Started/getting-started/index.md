@@ -5,7 +5,7 @@ excerpt: >-
   real-time transaction analysis
 hidden: false
 ---
-export const handleLogin=() => alert("Hello")
+export const handleLogin=() => alert("Hello");
 
 <Button onclick={handleLogin}>Hello Javeed </Button>
 
